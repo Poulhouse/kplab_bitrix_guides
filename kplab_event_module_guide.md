@@ -27,7 +27,7 @@ bitrix/modules/kplab.events/
 │   ├── version.php
 │   └── step.php (опционально)
 ├── lib/
-│   └── events.php
+│   └── CallBack.php
 ├── include.php
 └── lang/
     └── ru/install/index.php
@@ -68,7 +68,7 @@ class kplab_events extends CModule
             'main',
             'OnAfterUserAuthorize',
             $this->MODULE_ID,
-            '\\KPLab\\Events\\Events',
+            '\\KPLab\\Events\\CallBack',
             'onUserLogin'
         );
     }
@@ -78,7 +78,7 @@ class kplab_events extends CModule
             'main',
             'OnAfterUserAuthorize',
             $this->MODULE_ID,
-            '\\KPLab\\Events\\Events',
+            '\\KPLab\\Events\\CallBack',
             'onUserLogin'
         );
     }
@@ -94,7 +94,7 @@ class kplab_events extends CModule
 ```php
 namespace KPLab\Events;
 
-class Events
+class CallBack
 {
     public static function onUserLogin($arParams)
     {
@@ -120,7 +120,7 @@ class Events
 \Bitrix\Main\Loader::registerAutoLoadClasses(
     'kplab.events',
     [
-        '\\KPLab\\Events\\Events' => 'lib/events.php'
+        '\\KPLab\\Events\\CallBack' => 'lib/CallBack.php'
     ]
 );
 ```
